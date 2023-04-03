@@ -1,0 +1,61 @@
+/* Global styles */
+
+/* Set the font family, margin and padding to 0 for the body */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set the font size, weight and text alignment for all headings */
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.links {
+  text-align: center;
+}
+
+/* Style for all links */
+a {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  border: 2px solid #000;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+
+/* Style for link hover state */
+a:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Specific styles */
+
+/* Set the background color for the body */
+body {
+  background-color: #f2f2f2;
+}
+
+/* Adjust the margin for the second heading */
+h1:nth-of-type(2) {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+/* Remove the right margin for the first link */
+a:first-of-type {
+  margin-right: 0;
+}
