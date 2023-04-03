@@ -8,7 +8,7 @@
 </head>
 <body>
   <h1>Login Form</h1>
-  <form action="#" method="POST">
+  <form action="/user/login" method="POST">
 
 
     <label for="email">Email</label>

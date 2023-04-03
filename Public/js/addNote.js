@@ -1,46 +1,53 @@
 const myForm = document.getElementById("myForm");
-
+// this function prevents  default form submission
 myForm.onsubmit = (e) => {
   e.preventDefault();
   const text = document.getElementById("body").value;
   let data = { title: myForm["title"].value, body: text };
-  console.log(data);
-  post_data(data);
+
+  postData(data);
 };
 
-async function post_data(data) {
+// this function  send post request to the url to add new note
+async function postData(data) {
   try {
-    await fetch("http://local-notepad-app.com/note/addNote", {
+    let response = await fetch("http://local-notepad-app.com/note/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
-    await get_data();
+    const ans = await response.json();
+    await getData();
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 }
-async function get_data() {
+// this function sends a get request and also adds the notes to the dom
+async function getData() {
   try {
-    const tableBody = document.getElementById("table-body");
-    tableBody.innerHTML = "";
-    const response = await fetch("http://local-notepad-app.com/note/addNote");
+    let container = document.getElementById("card-container");
+    container.innerHTML = "";
+    const response = await fetch("http://local-notepad-app.com/note/show");
     const data = await response.json();
-
+    console.log(data);
     data.forEach((element) => {
-      const newRow = document.createElement("tr");
-      Object.keys(element).forEach((key) => {
-        const nameCell = document.createElement("td");
-
-        nameCell.textContent = element[key];
-        newRow.appendChild(nameCell);
-      });
-      tableBody.appendChild(newRow);
+      let card = document.createElement("div");
+      card.classList.add("card");
+      let title = document.createElement("h3");
+      title.innerHTML = element["title"];
+      let body = document.createElement("p");
+      body.innerHTML = element["body"];
+      let created = document.createElement("p");
+      created.innerHTML = element["created"];
+      card.appendChild(title);
+      card.appendChild(body);
+      card.appendChild(created);
+      container.appendChild(card);
     });
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 }
-get_data();
+getData();

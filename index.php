@@ -20,9 +20,10 @@ if (isset($parameters[1]) && $parameters[1] != '') {
 if (isset($parameters[2]) && $parameters[2] != '') {
     $function = $parameters[2];
 }
+
 // try  creating  the controller object if not possible then call default Home class
 try {
-    $class_name = "App\\Process\\$control";
+    $class_name = "App\\Controller\\$control";
     $class = new $class_name();
     //  if method exists then call the class method
     if (method_exists($class, $function)) {
@@ -31,6 +32,6 @@ try {
 } catch (error) {
     $control = 'Home';
     $function = 'Home';
-    $class_name = "App\\Process\\$control";
+    $class_name = "App\\Controller\\$control";
     $class = new $class_name();
 }
