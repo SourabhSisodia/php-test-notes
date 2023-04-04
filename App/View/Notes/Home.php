@@ -6,6 +6,7 @@
   <title>Notes Maker App</title>
   <link rel="stylesheet" href="/Public/css/notes/nav.css">
   <link rel="stylesheet" href="/Public/css/notes/home.css">
+  <!-- js file to send post and get requests asynchronously -->
   <script defer src="/Public/js/addNote.js"></script>
 </head>
 <body>
@@ -27,16 +28,9 @@
     <button type="submit">Add Note</button>
   </form>
 </div>
-<table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Title</th>
-          <th>Body</th>
-        </tr>
-      </thead>
-      <tbody id="table-body"></tbody>
-    </table>
+<div id="card-container">
+
+</div>
 
 </body>
 </html>

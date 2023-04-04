@@ -1,6 +1,10 @@
 <?php
 namespace App\Libraries;
 
+/**
+ * Database
+ * database class creates a database connection and has all the values to create a connection
+ */
 class Database
 {
     private $host = "localhost";
@@ -21,6 +25,12 @@ class Database
         } else {
         }
     }
+    /**
+     * execute
+     *executes any query
+     * @param  string $query
+     * @return mixed
+     */
     public function execute($query)
     {
         $result = $this->conn->query($query);
